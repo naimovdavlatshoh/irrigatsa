@@ -4,6 +4,7 @@ import {
     Routes,
     Route,
     useLocation,
+    useNavigate,
 } from "react-router-dom";
 import {
     AllAnnouncement,
@@ -24,16 +25,17 @@ import "aos/dist/aos.css";
 function App() {
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Optional: animation duration in ms
-            once: true, // Optional: whether animation should happen only once or every time you scroll
+            duration: 1000,
+            once: true,
         });
     }, []);
+
     return (
         <Router>
             <Topbar />
             <Header />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path={`/`} element={<Home />} />
                 <Route path="/main-detail/:id" element={<MainDetail />} />
                 <Route
                     path="/template-detail/:id"

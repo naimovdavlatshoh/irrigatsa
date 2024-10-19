@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "http://192.168.0.100:8000/";
+export const BASE_URL = "https://sayt.tiiamebb.uz/";
 // export const BASE_URL_IMG = "https://api.mineplugins.com";
 
 export const Token = localStorage.getItem("token");

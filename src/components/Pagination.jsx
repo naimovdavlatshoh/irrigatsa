@@ -16,8 +16,6 @@ const PaginationCard = (props) => {
         setCurrentPage(page);
     };
 
-    console.log(totalPages);
-
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
     };
@@ -39,22 +37,29 @@ const PaginationCard = (props) => {
                 <p>Prev</p>
             </Button>
             <div className="flex items-center gap-2">
-                {[...Array(totalPages).keys()].map((page) => (
-                    <IconButton
-                        className={
-                            currentPage === page + 1 ? "bg-primary" : "bg-gray-400"
-                        }
-                        key={page + 1}
-                        active={page + 1 === currentPage}
-                        onClick={() => handlePageChange(page + 1)}
-                    >
-                        {page + 1}
-                    </IconButton>
-                ))}
+                {(totalPages) =>
+                    1 && (
+                        <>
+                            {[...Array(totalPages)?.keys()]?.map((page) => (
+                                <IconButton
+                                    className={
+                                        currentPage === page + 1
+                                            ? "bg-primary"
+                                            : "bg-gray-400"
+                                    }
+                                    key={page + 1}
+                                    active={page + 1 === currentPage}
+                                    onClick={() => handlePageChange(page + 1)}
+                                >
+                                    {page + 1}
+                                </IconButton>
+                            ))}
+                        </>
+                    )
+                }
             </div>
 
             <Button
-
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-2 rounded-lg bg-primary"

@@ -32,12 +32,14 @@ const AllAnnouncement = () => {
     }, [language]);
 
     useEffect(() => {
-        GetDataSimple(`main/part/v1/announcement?page=${currentPage}`).then((data) => {
-            setData(data?.results);
-            const itemsPerPage = data.results.length; // or a fixed value if it's known, e.g., 10
-            const totalPages = Math.ceil(data.count / itemsPerPage);
-            setTotalPages(totalPages);
-        });
+        GetDataSimple(`main/part/v1/announcement?page=${currentPage}`).then(
+            (data) => {
+                setData(data?.results);
+                const itemsPerPage = data?.results?.length; // or a fixed value if it's known, e.g., 10
+                const totalPages = Math.ceil(data?.count / itemsPerPage);
+                setTotalPages(totalPages);
+            }
+        );
     }, [currentPage]);
 
     const handleOpen = (img, title) => {
@@ -111,7 +113,7 @@ const AllAnnouncement = () => {
                     >
                         <img
                             className="absolute rounded-[10px] z-10  h-full w-full"
-                            src={item.logo}
+                            src={item?.logo}
                             alt=""
                         />
                         <p className="absolute z-20 top-[190px]  px-5 py-2 rounded-r-md bg-white">

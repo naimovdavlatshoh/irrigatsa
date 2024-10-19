@@ -50,7 +50,7 @@ const Footer = () => {
                         ? "Contact"
                         : "Bog'lanish"}
                 </p>
-                <div className="flex flex-col md:flex-row justify-between items-start gap-3 border-b border-blue-800 mb-20">
+                <div className="flex flex-col md:flex-row justify-between items-start gap-3 border-b border-blue-800 mb-20 pb-5">
                     <div className="w-1/2 md:w-[25%]">
                         <p className=" text-[10px] md:text-[18px] mb-5 text-[#fe6803] font-bold">
                             {language === "uz"
@@ -99,9 +99,9 @@ const Footer = () => {
                             )}
                         </p>
                     </div>
-                    <div className="w-1/2 md:w-[30%] flex justify-between">
+                    <div className="w-full md:w-[30%] flex justify-between gap-3 md:gap-0">
                         <div className="w-1/2">
-                            <p className="text-[10px] md:text-[18px] mb-5 text-[#fe6803] font-bold">
+                            <p className="text-[10px] md:text-[18px] mb-5 text-[#fe6803] font-bold footer-text">
                                 {language === "uz"
                                     ? "Telefon:"
                                     : language === "ru"
@@ -128,7 +128,7 @@ const Footer = () => {
                             </a>
                         </div>
                         <div className="w-1/2">
-                            <p className="text-[10px] md:text-[18px] mb-5 text-[#fe6803] font-bold">
+                            <p className="text-[10px] md:text-[18px] mb-5 text-[#fe6803] font-bold footer-text">
                                 {language === "uz"
                                     ? "Faks:"
                                     : language === "ru"
@@ -178,25 +178,37 @@ const Footer = () => {
                                 target="_blank"
                                 href="https://www.facebook.com/tiiame.uz/"
                             >
-                                <FaFacebook className="text-white hover:text-blue-400" />
+                                <FaFacebook
+                                    className="text-white hover:text-blue-400"
+                                    size={25}
+                                />
                             </a>
                             <a
                                 target="_blank"
                                 href="https://x.com/tiiameofficial?lang=en"
                             >
-                                <FaTwitter className="text-white hover:text-blue-400" />
+                                <FaTwitter
+                                    className="text-white hover:text-blue-400"
+                                    size={25}
+                                />
                             </a>
                             <a
                                 target="_blank"
                                 href="https://t.me/TIQXMMIBuxoro"
                             >
-                                <FaTelegram className="text-white hover:text-blue-400" />
+                                <FaTelegram
+                                    className="text-white hover:text-blue-400"
+                                    size={25}
+                                />
                             </a>
                             <a
                                 target="_blank"
                                 href="https://www.youtube.com/channel/UCR2v5fa2y7-fjoDWyEMU0Sg"
                             >
-                                <FaYoutube className="text-white hover:text-blue-400" />
+                                <FaYoutube
+                                    className="text-white hover:text-blue-400"
+                                    size={25}
+                                />
                             </a>
                         </div>
                     </div>

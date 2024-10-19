@@ -55,7 +55,7 @@ const SubCarousel = () => {
                     {data?.map((item, index) => (
                         <SwiperSlide className="py-5 bg-primary">
                             <div className="h-[80px] bg-primary w-full border-r border-dotted border-white px-10 flex justify-between items-center gap-3">
-                                <div className="w-[90px] h-[80px] object-cover">
+                                <div className="w-[100px] h-[80px] ">
                                     <img
                                         src={item?.logo}
                                         className="w-full h-full object-contain"

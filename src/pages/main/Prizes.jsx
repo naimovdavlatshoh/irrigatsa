@@ -62,10 +62,10 @@ const Prizes = () => {
                                 >
                                     {i?.level}
                                 </h1>
-                                <h3 className="text-center text-[20px]">
+                                <h2 className="text-center text-[20px]">
                                     {i?.translations?.[language]?.title ||
                                         i?.translations?.uz?.title}
-                                </h3>
+                                </h2>
                             </div>
                         ))}
                     </div>

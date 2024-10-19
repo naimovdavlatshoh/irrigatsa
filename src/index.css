@@ -10,18 +10,34 @@
 
 :root {
     --site-font-size: 16px; /* Default body font size */
+    --site-span-size: 14px; /* Default body font size */
+    --site-font-size: 22px; /* Default body font size */
     --site-heading-font-size: 32px; /* Default heading font size */
 }
 
 @media screen and (min-width: 0) and (max-width: 456px) {
     :root {
         --site-font-size: 16px; /* Default body font size */
+        --site-font-size: 12px; /* Default body font size */
+        --site-normal-size: 20px; /* Default body font size */
         --site-heading-font-size: 26px; /* Default heading font size */
+    }
+    .footer-text {
+        font-size: 10px !important;
     }
 }
 
+.footer-text {
+    font-size: 18px !important;
+}
+
 body {
-    font-size: var(--site-font-size);
+    font-size: var(--site-font-size) !important;
+}
+
+.link {
+    font-size: var(--site-normal-size) !important;
+    border-bottom: 1px solid #291f75;
 }
 
 h1,
@@ -29,10 +45,12 @@ h2,
 h4 {
     font-size: var(--site-heading-font-size) !important;
 }
+span {
+    font-size: var(--site-span-size) !important;
+}
 
 /* You can add other elements as needed */
 p,
-span,
 h3,
 a,
 li {
@@ -51,13 +69,17 @@ li {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
 }
 
 .bg-carousel {
     background: black;
 }
 
+.my-swiper {
+    width: 100%;
+    height: 100vh !important;
+}
 .swiper {
     width: 100%;
     height: 100%;
@@ -127,4 +149,21 @@ li {
 .videoslider .swiper-button-prev,
 .videoslider .swiper-button-next {
     display: none;
+}
+
+.custom-bullet {
+    width: 20px;
+    height: 5px;
+    background-color: white; /* Custom bullet color */
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px;
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.custom-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.3); /* Enlarge the active bullet */
+    background-color: white; /* Active bullet color */
 }

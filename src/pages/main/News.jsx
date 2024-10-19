@@ -51,7 +51,7 @@ const News = () => {
     return (
         <div className="container mx-auto mb-20">
             <div className="flex px-5 md:px-0 w-full justify-between py-10 items-center">
-                <p className="text-[#fe6803] font-bold">
+                <p className="text-[#fe6803] ">
                     <h1>
                         {language === "uz"
                             ? "Yangiliklar"
@@ -62,16 +62,14 @@ const News = () => {
                             : "Yangiliklar"}
                     </h1>
                 </p>
-                <Link to={"/all-news"} className="text-primary ">
-                    <h1>
-                        {language === "uz"
-                            ? "Barcha yangiliklar"
-                            : language === "ru"
-                            ? "Все новости"
-                            : language === "en"
-                            ? "All news"
-                            : "Barcha yangiliklar"}
-                    </h1>
+                <Link to={"/all-news"} className="text-primary link">
+                    {language === "uz"
+                        ? "Barcha yangiliklar"
+                        : language === "ru"
+                        ? "Все новости"
+                        : language === "en"
+                        ? "All "
+                        : "Barcha yangiliklar"}
                 </Link>
             </div>
 

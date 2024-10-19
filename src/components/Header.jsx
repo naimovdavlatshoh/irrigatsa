@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { HiOutlinePhoneArrowDownLeft } from "react-icons/hi2";
 import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { ChevronUpIcon } from "@heroicons/react/24/solid";
-import { MdKeyboardArrowRight } from "react-icons/md";
+
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 
@@ -12,10 +9,8 @@ import { GetDataSimple } from "../services";
 import { Menu, MenuButton, MenuItem, SubMenu } from "@szhsin/react-menu";
 
 const Header = () => {
-    const [headerCategory, setHeaderCategory] = useState([]);
     const [dataheader, setDataheader] = useState([]);
     const [data, setData] = useState([]);
-    const [openMenu, setOpenMenu] = React.useState(false);
     const [language, setLanguage] = useState(null);
 
     useEffect(() => {
@@ -46,7 +41,10 @@ const Header = () => {
 
     return (
         <header>
-            <div className="container mx-auto text-center mt-5 ">
+            <div
+                data-aos="zoom-in"
+                className="container mx-auto text-center mt-5 "
+            >
                 <h2 className="text-primary  font-semibold">
                     {language === "uz"
                         ? data[0]?.translations?.uz?.name
@@ -58,7 +56,7 @@ const Header = () => {
                 </h2>
             </div>
             <nav className="container gap-5 md:gap-0 mx-auto flex px-5 md:px-0 justify-between items-center py-5">
-                <Link to={"/"} className="w-2/4">
+                <Link data-aos="zoom-in" to={"/"} className="w-2/4">
                     <img
                         src={data[0]?.logo}
                         alt="Logo"
@@ -66,7 +64,7 @@ const Header = () => {
                     />
                 </Link>
                 <div className="flex items-center gap-5 flex-wrap">
-                    <div className="flex items-center gap-2">
+                    <div data-aos="zoom-in" className="flex items-center gap-2">
                         <HiOutlinePhoneArrowDownLeft className="text-2xl text-primary" />
                         <div>
                             <h3 className="uppercase font-semibold text-primary">
@@ -86,7 +84,7 @@ const Header = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div data-aos="zoom-in" className="flex items-center gap-2">
                         <HiOutlinePhoneArrowDownLeft className="text-2xl text-primary" />
                         <div>
                             <h3 className="uppercase  font-semibold text-primary">
@@ -106,7 +104,10 @@ const Header = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 text-primary">
+                    <div
+                        data-aos="zoom-in"
+                        className="flex items-center gap-2 text-primary"
+                    >
                         <HiOutlinePhoneArrowDownLeft className="text-2xl" />
                         <div>
                             <h3 className="uppercase font-semibold text-primary">
@@ -132,7 +133,7 @@ const Header = () => {
                 </div>
             </nav>
             <div className="bg-primary text-white py-3">
-                <ul className="container mx-auto flex justify-start gap-8 w-full overflow-x-scroll lg:overflow-visible">
+                <ul className="container mx-auto flex justify-start gap-8 w-full overflow-x-scroll lg:overflow-visible px-5 md:px-0">
                     <li>
                         <Link to="/">
                             {language === "uz"
@@ -207,6 +208,17 @@ const Header = () => {
                                                     }${i.id}`}
                                                 >
                                                     {i?.translations?.ru?.name}
+                                                    {language === "uz"
+                                                        ? i?.translations?.uz
+                                                              ?.name
+                                                        : language === "en"
+                                                        ? i?.translations?.en
+                                                              ?.name
+                                                        : language === "ru"
+                                                        ? i?.translations?.ru
+                                                              ?.name
+                                                        : i?.translations?.uz
+                                                              ?.name}
                                                 </Link>
                                             </MenuItem>
                                         )}
@@ -221,26 +233,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{
-    /* <Link
-className="outline-none hover:bg-primary hover:text-white p-2 rounded-sm w-full "
-to={`${
-    i.is_staff
-        ? "main-detail/"
-        : i.is_news
-        ? "all-detail/"
-        : i.is_contact
-        ? "contact/"
-        : !i.is_contact &&
-          !i.is_news &&
-          !i.is_staff &&
-          "template-detail/"
-}${i.id}`}
->
-{
-    i.translations.ru
-        ?.name
-}
-</Link> */
-}

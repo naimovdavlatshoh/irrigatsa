@@ -100,17 +100,17 @@ const Announcement = () => {
                 </p>
                 <Link
                     to={"/all-announcement"}
-                    className="text-primary text-[20px] md:text-[26px] "
+                    className="text-primary text-[20px] md:text-[26px] link"
                 >
-                    <h1>
+
                         {language === "uz"
                             ? "Barcha e'lonlar"
                             : language === "ru"
                             ? "Все объявлении"
                             : language === "en"
-                            ? "All announcement"
+                            ? "All"
                             : "Barcha e'lonlar"}
-                    </h1>
+
                 </Link>
             </div>
             <div className="flex flex-wrap justify-between items-center py-10">

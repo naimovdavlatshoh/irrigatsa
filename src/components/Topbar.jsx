@@ -19,31 +19,31 @@ const Topbar = () => {
                 document.documentElement.style.setProperty(
                     "--site-font-size",
                     "14px"
-                ); // Small size
+                );
                 document.documentElement.style.setProperty(
                     "--site-heading-font-size",
                     "18px"
-                ); // Example for heading
+                );
                 break;
             case "medium":
                 document.documentElement.style.setProperty(
                     "--site-font-size",
                     "22px"
-                ); // Medium size
+                );
                 document.documentElement.style.setProperty(
                     "--site-heading-font-size",
                     "30px"
-                ); // Example for heading
+                );
                 break;
             case "large":
                 document.documentElement.style.setProperty(
                     "--site-font-size",
                     "30px"
-                ); // Large size
+                );
                 document.documentElement.style.setProperty(
                     "--site-heading-font-size",
                     "40px"
-                ); // Example for heading
+                );
                 break;
             default:
                 break;
@@ -51,19 +51,36 @@ const Topbar = () => {
     };
 
     useEffect(() => {
-        const lang = localStorage.getItem("lang");
+        // Get the language from the query params on initial load
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get("lang");
+
         if (lang) {
             setLanguage(lang);
+            localStorage.setItem("lang", lang); // Save the language in local storage
+        } else {
+            // If no query parameter, check local storage
+            const savedLang = localStorage.getItem("lang");
+            if (savedLang) {
+                setLanguage(savedLang);
+            }
         }
-    }, [language]);
+    }, []);
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
     const changeLanguage = (lang) => {
-        localStorage.setItem("lang", lang);
-        window.location.reload();
+        localStorage.setItem("lang", lang); // Save to localStorage
+
+        // Create a new URL object based on the current window location
+        const url = new URL(window.location);
+        url.searchParams.set("lang", lang); // Update or set the lang query parameter
+
+        // Update the URL and refresh the page to apply the new language
+        window.history.pushState({}, "", url); // Update the URL in the browser
+        window.location.reload(); // Reload the page
     };
 
     return (
