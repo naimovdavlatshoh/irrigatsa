@@ -56,15 +56,18 @@ const Header = () => {
                 </h2>
             </div>
             <nav className="container gap-5 md:gap-0 mx-auto flex px-5 md:px-0 justify-between items-center py-5">
-                <Link data-aos="zoom-in" to={"/"} className="w-2/4">
+                <Link data-aos="zoom-in" to={"/"} className="w-2/4 md:w-1/4">
                     <img
                         src={data[0]?.logo}
                         alt="Logo"
                         className="h-24 object-contain"
                     />
                 </Link>
-                <div className="flex items-center gap-5 flex-wrap">
-                    <div data-aos="zoom-in" className="flex items-center gap-2">
+                <div className="flex flex-col md:flex-row items-center gap-5 w-2/4 md:w-3/4 ">
+                    <div
+                        data-aos="zoom-in"
+                        className="flex items-center gap-2 w-full md:w-1/3 "
+                    >
                         <HiOutlinePhoneArrowDownLeft className="text-2xl text-primary" />
                         <div>
                             <h3 className="uppercase font-semibold text-primary">
@@ -80,11 +83,14 @@ const Header = () => {
                                 href="tel:+998 (65) 228-94-24"
                                 className="text-sm text-primary"
                             >
-                                +998 (65) 228-94-24
+                                <span>+998 (65) 228-94-24</span>
                             </a>
                         </div>
                     </div>
-                    <div data-aos="zoom-in" className="flex items-center gap-2">
+                    <div
+                        data-aos="zoom-in"
+                        className="flex items-center gap-2 w-full md:w-1/3"
+                    >
                         <HiOutlinePhoneArrowDownLeft className="text-2xl text-primary" />
                         <div>
                             <h3 className="uppercase  font-semibold text-primary">
@@ -100,13 +106,13 @@ const Header = () => {
                                 href="mailto:tiimbfuz@umail.uz"
                                 className="text-sm text-primary"
                             >
-                                tiimbfuz@umail.uz
+                                <span>tiimbfuz@umail.uz</span>
                             </a>
                         </div>
                     </div>
                     <div
                         data-aos="zoom-in"
-                        className="flex items-center gap-2 text-primary"
+                        className="flex items-center gap-2 text-primary w-full md:w-1/3"
                     >
                         <HiOutlinePhoneArrowDownLeft className="text-2xl" />
                         <div>
@@ -120,13 +126,15 @@ const Header = () => {
                                     : "Manzil"}
                             </h3>
                             <a href="#" className="text-sm text-primary">
-                                {language === "uz"
-                                    ? "Buxoro shahri, Gazli shoh ko‘chasi 32-uy"
-                                    : language === "ru"
-                                    ? "Бухара район, Газли шох квартира 32-а"
-                                    : language === "en"
-                                    ? "Buxoro district, Gazli st. 32-uy"
-                                    : "Buxoro shahri, Gazli shoh ko‘chasi 32-uy"}
+                                <span>
+                                    {language === "uz"
+                                        ? "Buxoro shahri, Gazli shoh ko‘chasi 32-uy"
+                                        : language === "ru"
+                                        ? "Бухара район, Газли шох квартира 32-а"
+                                        : language === "en"
+                                        ? "Buxoro district, Gazli st. 32-uy"
+                                        : "Buxoro shahri, Gazli shoh ko‘chasi 32-uy"}
+                                </span>
                             </a>
                         </div>
                     </div>

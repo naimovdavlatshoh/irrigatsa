@@ -30,6 +30,13 @@ function App() {
         });
     }, []);
 
+    useEffect(() => {
+        if (location.pathname === "/index.html") {
+            window.history.replaceState(null, "", "/");
+            window.location.reload();
+        }
+    }, [location.pathname]);
+
     return (
         <Router>
             <Topbar />
